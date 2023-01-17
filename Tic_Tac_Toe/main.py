@@ -23,15 +23,42 @@ def update_player(current_player):
         return '0'
     else:
         return 'X'
+
+def is_field_filled(field):
+    for line in field:
+        for el in line:
+            if el == " ":
+                return False
+    return True
+
 n = 3
 field = generate_field(n)
 current_player = 'X'
 step_player = []
+
+
 while True:
     print('///'*10)
     print_field(field, n)
     step_player = get_player_step(current_player)
-    field[step_player[0]][step_player[1]] = current_player
-    current_player = update_player(current_player)
+    y, x = step_player[0], step_player[1]
+    if field[y][x] == ' ':
+        field[y][x] = current_player
+        current_player = update_player(current_player)
+    else:
+        print("Ячейка уже занята!")
+
+    # filled_cells = 0
+    # for line in field:
+    #     for el in line:
+    #         if el != ' ':
+    #             filled_cells += 1
+
+    if is_field_filled(field):
+        print('Конец игры.')
+        break
+
     print('///'*10)
-    
+
+print('///'*10)
+print_field(field)
