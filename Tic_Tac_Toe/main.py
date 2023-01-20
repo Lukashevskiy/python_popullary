@@ -44,6 +44,17 @@ while True:
     y, x = step_player[0], step_player[1]
     if field[y][x] == ' ':
         field[y][x] = current_player
+        is_win = False
+        
+        if field[0][0] == current_player and field[1][1] == current_player and field[2][2] == current_player:
+            is_win = True
+        elif field[0][0] == current_player and field[0][1] == current_player and field[0][2] == current_player:
+            is_win = True
+
+        if is_win:
+            print("Победил", current_player)
+            break
+        
         current_player = update_player(current_player)
     else:
         print("Ячейка уже занята!")
@@ -54,6 +65,7 @@ while True:
     #         if el != ' ':
     #             filled_cells += 1
 
+   
     if is_field_filled(field):
         print('Конец игры.')
         break
