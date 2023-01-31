@@ -76,7 +76,7 @@ while True:
     step_player = get_player_step(current_player)
     y, x = step_player[0], step_player[1]
 
-    if is_cell_valid(field, n, y, x):
+    if is_cell_valid(field, n, x, y):
         field[y][x] = current_player
     else:
         print("Invalid cell")
