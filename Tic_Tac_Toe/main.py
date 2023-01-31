@@ -58,7 +58,7 @@ def check_diag(field, n, diag_i, current_player):
 
 def is_win(field, n, current_player):
     for y in range(0, n):
-        if check_row(field, y, current_player):
+        if check_row(field, n, y, current_player):
             return True
 
     return False
@@ -90,7 +90,9 @@ while True:
         print('Конец игры.')
         break
 
+    current_player = update_player(current_player)
+
     print('///'*10)
 
 print('///'*10)
-print_field(field)
+print_field(field, n)
