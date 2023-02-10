@@ -9,9 +9,7 @@ window.geometry("640x480")
 def add_label():
     Label(window, text="Hello World").pack()
 
-button = Button(window, 
-                text="Пам пам", 
-                command=add_label)
+button = Button(window, text="Пам пам", command=add_label)
 
 button.pack()
 window.mainloop()
